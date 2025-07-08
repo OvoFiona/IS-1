@@ -7,18 +7,20 @@ require_once("config/connect.php");
 // Check if the form is submitted
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // Collect form data
-    $itemName = trim($_POST['item_name'] ?? '');
+    $itemName = trim($_POST['itemName'] ?? '');
     $category = trim($_POST['category'] ?? '');
-    $description = trim($_POST['description'] ?? '');
-    $location = trim($_POST['location'] ?? '');
-    $dateLost = trim($_POST['date_lost'] ?? '');
+    $Description = trim($_POST['Description'] ?? '');
+    $LocationLost = trim($_POST['LocationLost'] ?? '');
+    $dateLost = trim($_POST['dateLost'] ?? '');
     $Email = trim($_POST['Email'] ?? '');
+    $itemImage = trim($_POST['itemImage']?? ''); // Initialize itemImage variable
+
 
     
     // Validate required fields
-    if (empty($itemName) || empty($category) || empty($description) || empty($location) || empty($Email) || empty($dateLost)) {
+    if (empty($itemName) || empty($Category) || empty($Description) || empty($LocationLost) || empty($Email) || empty($dateLost) || empty($itemImage)) {
         $errorMessage = "All fields marked with * are required.";
-    } elseif (!filter_var($reporterEmail, FILTER_VALIDATE_EMAIL)) {
+    } elseif (!filter_var($Email, FILTER_VALIDATE_EMAIL)) {
         $errorMessage = "Invalid email format.";
     } else {
         // Handle file upload if an image is provided
@@ -35,7 +37,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
         // Insert into database
         $stmt = $conn->prepare("INSERT INTO LostItems (ItemName, Category, Description, LocationLost, DateLost, itemImage, Email) VALUES (?, ?, ?, ?, ?, ?, ?)");
-        $stmt->bind_param("sssssss", $itemName, $category, $description, $locationLost, $dateLost, $itemImage, $Email);
+        $stmt->bind_param("sssssss", $itemName, $Category, $Description, $locationLost, $DateLost, $itemImage, $Email);
         
         if ($stmt->execute()) {
             $_SESSION['success_message'] = "Lost item reported successfully.";
@@ -89,17 +91,17 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 
                 <div class="form-group">
                     <label for="description">Description*</label>
-                    <textarea id="description" name="description" required></textarea>
+                    <textarea id="Description" name="Description" required></textarea>
                 </div>
                 
                 <div class="form-group">
                     <label for="location">LocationLost*</label>
-                    <input type="text" id="location" name="location" required>
+                    <input type="text" id="LocationLost" name="LocationLost" required>
                 </div>
                 
                 <div class="form-group">
                     <label for="date_lost">DateLost*</label>
-                    <input type="date" id="date_lost" name="date_lost" required>
+                    <input type="date" id="DateLost" name="DateLost" required>
                 </div>
                 
                 <div class="form-group">
@@ -114,7 +116,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
               
                            
                 <div class="form-group">
-                    <label for="reporter_email">Email*</label>
+                    <label for="email">Email*</label>
                     <input type="email" id="email" name="email" required placeholder="username@strathmore.edu">
                 </div>
                 

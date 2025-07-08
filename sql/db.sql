@@ -34,6 +34,7 @@ DROP TABLE IF EXISTS LostItems;
 CREATE TABLE IF NOT EXISTS LostItems(
     Id bigint(11) NOT NULL AUTO_INCREMENT,
     ItemName varchar(100) NOT NULL,
+    Category varchar(50) NOT NULL,
     Description text NOT NULL,
     LocationLost varchar(100) NOT NULL,
     DateLost DATETIME DEFAULT CURRENT_TIMESTAMP,

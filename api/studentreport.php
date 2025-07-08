@@ -8,14 +8,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && strpos($_SERVER["CONTENT_TYPE"], "a
 
     // Extract and validate fields
     $itemName = trim($data['ItemName'] ?? '');
-    $description = trim($data['Description'] ?? '');
-    $locationLost = trim($data['LocationLost'] ?? '');
+    $Description = trim($data['Description'] ?? '');
+    $Category = trim($data['Category'] ?? ''); 
+    $LocationLost = trim($data['LocationLost'] ?? '');
     $itemImage = trim($data['itemImage'] ?? '');// Optional field
     $email = trim($data['Email'] ?? '');
-    $dateLost = trim($data['DateLost'] ?? ''); 
+    $DateLost = trim($data['DateLost'] ?? ''); 
 
     // Validate required fields
-    if (empty($itemName) || empty($description) || empty($locationLost) || empty($email) || empty($dateLost)) {
+    if (empty($itemName) || empty($Description) || empty($LocationLost) || empty($email) || empty($dateLost)) {
         echo json_encode(['success' => false, 'message' => 'All required fields must be filled.']);
         exit;
     }
@@ -45,12 +46,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && strpos($_SERVER["CONTENT_TYPE"], "a
     $checkStmt->close();
 
     // Insert lost item
-    if (!empty($dateLost)) {
-        $stmt = $conn->prepare("INSERT INTO LostItems (ItemName, Description, LocationLost, DateLost, itemImage, Email) VALUES (?, ?, ?, ?, ?, ?)");
-        $stmt->bind_param("ssssss", $itemName, $description, $locationLost, $dateLost, $itemImage, $email);
+    if (!empty($DateLost)) {
+        $stmt = $conn->prepare("INSERT INTO LostItems (ItemName, Description, Category, LocationLost, DateLost, itemImage, Email) VALUES (?, ?, ?, ?, ?, ?, ?)");
+        $stmt->bind_param("ssssss", $itemName, $Description, $Category, $LocationLost, $DateLost, $itemImage, $email);
     } else {
-        $stmt = $conn->prepare("INSERT INTO LostItems (ItemName, Description, LocationLost, itemImage, Email) VALUES (?, ?, ?, ?, ?)");
-        $stmt->bind_param("sssss", $itemName, $description, $locationLost, $itemImage, $email);
+        $stmt = $conn->prepare("INSERT INTO LostItems (ItemName, Description, Category, LocationLost, itemImage, Email) VALUES (?, ?, ?, ?, ?)");
+        $stmt->bind_param("sssss", $itemName, $Description, $Category, $LocationLost, $itemImage, $email);
     }
 
     if ($stmt->execute()) {
