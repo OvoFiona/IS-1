@@ -1,0 +1,146 @@
+/* view.html CSS */
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  line-height: 1.6;
+  margin: 0;
+  padding: 20px;
+  background-color: #f5f5f5;
+  color: #333;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+
+}
+
+h1 {
+  color: #2c3e50;
+  text-align: center;
+  margin-bottom: 25px;
+  font-weight: 600;
+}
+
+/* Table Styling */
+table {
+  margin: 0 auto;
+  border: 1px solid #000000;
+  border-radius: 8px;
+  overflow: hidden;
+  background-color: white;
+  width: 100%;
+  border-collapse: collapse;
+  margin: 20px 0;
+  font-size: 0.9em;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+}
+
+th, td {
+  padding: 10px 15px;
+  text-align: left;
+  border-bottom: 1px solid #e0e0e0;
+  font-size: 0.9em;
+  color: #555;
+  vertical-align: middle;
+
+}
+
+th {
+  background-color: #031825;
+  color: white;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  font-size: 0.95em;
+  border-bottom: 2px solid #000000;
+
+}
+
+tr:nth-child(even) {
+  background-color: #f8f9fa;
+}
+
+tr:hover {
+  background-color: #f1f8fe;
+}
+
+/* Status Badges */
+.status-unclaimed {
+  color: #e74c3c;
+  font-weight: bold;
+}
+
+.status-claimed {
+  color: #27ae60;
+  font-weight: bold;
+}
+
+/* Action Buttons */
+.action-form {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.action-form input[type="text"] {
+  padding: 6px 10px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  flex-grow: 1;
+}
+
+.btn {
+  padding: 6px 12px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.9em;
+  transition: background-color 0.2s;
+}
+
+.btn-claim {
+  background-color: #2ecc71;
+  color: white;
+}
+
+.btn-claim:hover {
+  background-color: #27ae60;
+}
+
+
+
+/* Responsive Table */
+@media (max-width: 768px) {
+  table {
+    display: block;
+    overflow-x: auto;
+  }
+}
+/* Responsive Design */
+@media (max-width: 768px) {
+  .container {
+    padding: 10px;
+  }
+
+  h1 {
+    font-size: 1.5rem;
+  }
+
+  table {
+    font-size: 0.8em;
+  }
+
+  th, td {
+    padding: 8px;
+  }
+
+  .btn {
+    font-size: 0.8em;
+    padding: 5px 10px;
+  }
+}
+
