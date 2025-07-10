@@ -1,9 +1,6 @@
 <?php
 session_start();
-if (!isset($_SESSION['security_guard_email'])) {
-    header("Location: Securityguardlogin.php");
-    exit;
-}
+
 ?>
 
 <!DOCTYPE html>
