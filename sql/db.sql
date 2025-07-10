@@ -43,3 +43,21 @@ CREATE TABLE IF NOT EXISTS LostItems(
     PRIMARY KEY(Id),
     FOREIGN KEY (Email) REFERENCES StudentLogin(Email) 
 );
+-- create table
+CREATE TABLE Records (
+    Id BIGINT AUTO_INCREMENT ,
+    ItemName VARCHAR(100) NOT NULL,
+    LocationFound VARCHAR(100) NOT NULL,
+    LocationLost VARCHAR(100) NOT NULL,
+    DateFound DATETIME NOT NULL,
+    DateLost DATETIME NOT NULL,
+    Description TEXT,
+    Email VARCHAR(100) NOT NULL,
+    DateClaimed DATETIME DEFAULT NULL,
+    Status ENUM('Unclaimed', 'Claimed') NOT NULL DEFAULT 'Unclaimed',
+    CreatedAt DATETIME DEFAULT CURRENT_TIMESTAMP,
+    UpdatedAt DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+    PRIMARY KEY(Id),
+    FOREIGN KEY (Email) REFERENCES StudentLogin(Email) 
+);
+
