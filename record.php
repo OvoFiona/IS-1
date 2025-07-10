@@ -1,3 +1,53 @@
+<?php
+require_once("config/connect.php");
+
+$successMessage = "";
+$errorMessage = "";
+
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    $ItemName = trim($_POST['item_name'] ?? '');
+    $LocationFound = trim($_POST['location_found'] ?? '');
+    $LocationLost = trim($_POST['location_lost'] ?? '');
+    $DateFound = $_POST['date_found'] ?? '';
+    $DateLost = $_POST['date_lost'] ?? '';
+    $Description = trim($_POST['description'] ?? '');
+    $Email = trim($_POST['Email'] ?? '');
+    $DateClaimed = $_POST['date_claimed'] ?? '';
+    $Status = $_POST['status'] ?? 'Unclaimed';
+
+    // Validation
+    if (
+        empty($ItemName) || empty($LocationFound) || empty($LocationLost) ||
+        empty($DateFound) || empty($DateLost) || empty($Email) || empty($Status)
+    ) {
+        $errorMessage = "Please fill in all required fields.";
+    } else {
+        try {
+            $stmt = $conn->prepare("INSERT INTO Records (ItemName, LocationFound, LocationLost, DateFound, DateLost, Description, Email, DateClaimed, Status) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)");
+            $stmt->bind_param("sssssssss", $ItemName, $LocationFound, $LocationLost, $DateFound, $DateLost, $Description, $Email, $DateClaimed, $Status);
+
+            if ($stmt->execute()) {
+                $successMessage = "Item recorded successfully.";
+            } else {
+                $errorMessage = "Database error: " . $stmt->error;
+            }
+        } catch (Exception $e) {
+            $errorMessage = "Server error: " . $e->getMessage();
+        }
+    }
+}
+
+if (!empty($successMessage)) {
+    echo "<div class='alert alert-success'>$successMessage</div>";
+} elseif (!empty($errorMessage)) {
+    echo "<div class='alert alert-danger'>$errorMessage</div>";
+}
+?>
+
+
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,58 +60,48 @@
 </head>
 <body>
     <h1>Record Found Item</h1>
-    <form action="record" method="POST">
-        <label for="item_name">Item Name:</label>
-        <input type="text" id="item_name" name="item_name" required>
-        
-        <label for="location_found">Location Found:</label>
-        <input type="text" id="location_found" name="location_found" required>
-        
-        <label for="date_found">Date Found:</label>
-        <input type="datetime-local" id="date_found" name="date_found" required>
-        
-        <label for="description">Description:</label>
-        <textarea id="description" name="description" rows="4"></textarea>
+    <form method="POST">
+    <label for="item_name">Item Name:</label>
+    <input type="text" id="item_name" name="item_name" required>
 
-     
-        <label for="contact_info">Student Information:</label>
-        <input type="text" id="Student_info" name="Student_info" required placeholder="email">
+    <label for="location_found">Location Found:</label>
+    <input type="text" id="location_found" name="location_found" required>
 
-        <label for="date_found">Date claimed:(Optional)</label>
-        <input type="datetime-local" id="date_claimed" name="date_claimed" required>
+    <label for="location_lost">Location Lost:</label>
+    <input type="text" id="location_lost" name="location_lost" required>
 
-        <label for="status">Status:</label>
-        <select id="status" name="status" required>
-            <option value="Unclaimed">Unclaimed</option>
-            <option value="Claimed">Claimed</option>    
-        </select>
+    <label for="date_found">Date Found:</label>
+    <input type="datetime-local" id="date_found" name="date_found" required>
+
+    <label for="date_lost">Date Lost:</label>
+    <input type="datetime-local" id="date_lost" name="date_lost" required>
+
+    <label for="description">Description:</label>
+    <textarea id="description" name="description" rows="4"></textarea>
+
+    <label for="Email">Email:</label>
+    <input type="email" id="Email" name="Email" required placeholder="email@strathmore.edu">
+
+    <label for="date_claimed">Date Claimed (optional):</label>
+    <input type="datetime-local" id="date_claimed" name="date_claimed">
+
+    <label for="status">Status:</label>
+    <select id="status" name="status" required>
+        <option value="">Choose...</option>
+        <option value="Unclaimed">Unclaimed</option>
+        <option value="Claimed">Claimed</option>    
+    </select>
+
+    <button type="submit">Submit</button>
+</form>
+
 
         <button type="submit">Submit</button>
         
     </form>
     <p><a href="view.php">View All Items</a></p>
 
-   <script>
-        document.querySelector('form').addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            const itemName = document.getElementById('item_name').value;
-            const locationFound = document.getElementById('location_found').value;
-            const dateFound = document.getElementById('date_found').value;
-            const description = document.getElementById('description').value;
-            const studentInfo = document.getElementById('Student_info').value;
-            const dateClaimed = document.getElementById('date_claimed').value;
-            const status = document.getElementById('status').value;
-
-            if (!itemName || !locationFound || !dateFound || !studentInfo || !status) {
-                alert("Please fill in all required fields.");
-                return;
-            }
-
-            this.submit();
-        });
-        
-    </script>
+  
 </form>
 </body>
 </html>
