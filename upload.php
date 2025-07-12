@@ -13,13 +13,13 @@
         <h1>Upload Found Item</h1>
         <form id="foundItemForm">
             <div class="form-group">
-                <label for="itemName" class="required">Item Name</label>
+                <label for="itemName" class="required">itemName</label>
                 <input type="text" id="itemName" name="itemName" required>
             </div>
             
             <div class="form-group">
-                <label for="category" class="required">Category</label>
-                <select id="category" name="category" required>
+                <label for="Category" class="required">Category</label>
+                <select id="cCategory" name="Category" required>
                     <option value="">Select a category</option>
                     <option value="electronics">Electronics</option>
                     <option value="documents">Documents</option>
@@ -31,33 +31,33 @@
             </div>
             
             <div class="form-group">
-                <label for="locationFound" class="required">Location Found</label>
-                <input type="text" id="locationFound" name="locationFound" required>
+                <label for="LocationFound" class="required">LocationFound</label>
+                <input type="text" id="LocationFound" name="LocationFound" required>
             </div>
             
             <div class="form-group">
-                <label for="dateFound" class="required">Date Found</label>
-                <input type="datetime-local" id="dateFound" name="dateFound" required>
+                <label for="DateFound" class="required">DateFound</label>
+                <input type="datetime-local" id="DateFound" name="DateFound" required>
             </div>
             
             <div class="form-group">
-                <label for="description">Description</label>
-                <textarea id="description" name="description"></textarea>
+                <label for="Description">Description</label>
+                <textarea id="Description" name="Description"></textarea>
             </div>
             
             <div class="form-group">
-                <label for="itemImage">Upload Image</label>
+                <label for="itemImage">itemImage</label>
                 <input type="file" id="itemImage" name="itemImage" accept="image/*">
             </div>
             
             <div class="form-group">
-                <label for="foundBy">Found By (if not you)</label>
-                <input type="text" id="foundBy" name="foundBy">
+                <label for="foundBy">Email</label>
+                <input type="email" id="Email" name="Email">
             </div>
             
             <div class="form-group">
-                <label for="storageLocation">Storage Location</label>
-                <input type="text" id="storageLocation" name="storageLocation">
+                <label for="storageLocation">StorageLocation</label>
+                <input type="text" id="StorageLocation" name="StorageLocation">
             </div>
             
             <button type="submit">Submit Found Item</button>
