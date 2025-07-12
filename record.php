@@ -96,7 +96,7 @@ if (!empty($successMessage)) {
 </form>
 
 
-        <button type="submit">Submit</button>
+       
         
     </form>
     <p><a href="view.php">View All Items</a></p>
