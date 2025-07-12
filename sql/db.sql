@@ -60,4 +60,21 @@ CREATE TABLE Records (
     PRIMARY KEY(Id),
     FOREIGN KEY (Email) REFERENCES StudentLogin(Email) 
 );
+-- create table
+DROP TABLE IF EXISTS FoundItems;
+CREATE TABLE FoundItems (
+    Id INT AUTO_INCREMENT ,
+    itemName VARCHAR(255) NOT NULL,
+    Category VARCHAR(100) NOT NULL,
+    LocationFound VARCHAR(255) NOT NULL,
+    DateFound DATETIME NOT NULL,
+    Description TEXT,
+    itemImage VARCHAR(255), -- Store the file name or path of the image
+    Email VARCHAR(255),
+    StorageLocation VARCHAR(255),
+    CreatedAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    PRIMARY KEY(Id),
+    FOREIGN KEY (Email) REFERENCES SecurityGuardLogin(Email) 
+);
+
 
