@@ -76,8 +76,11 @@ $conn->close();
         </tbody>
     </table>
 
-    <p><a href="sgdashboard.php">Back to Dashboard</a></p>
-    <p><a href="record.php">Record New Item</a></p>
+    <div class="d-flex gap-2 mt-3">
+  <a href="sgdashboard.php" class="btn btn-success btn-sm">Back to Dashboard</a>
+  <a href="record.php" class="btn btn-warning btn-sm">Record New Item</a>
+</div>
+
 </div>
 </body>
 </html>
