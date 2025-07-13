@@ -65,6 +65,35 @@ if (!empty($successMessage)) {
     <title>Upload Found Item - Security Guard Portal</title>
     <link rel="stylesheet" href="CSS/upload.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+  body {
+    background: linear-gradient(135deg, #2c3e50, #3498db);
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 30px;
+  }
+
+  .card {
+    background: #fff;
+    border-radius: 1rem;
+    padding: 30px;
+    width: 100%;
+    max-width: 600px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  }
+
+  .form-label {
+    font-weight: 500;
+  }
+
+  .btn-primary {
+    width: 100%;
+    font-weight: bold;
+    letter-spacing: 0.5px;
+  }
+</style>
 </head>
 <body>
 <div class="container">
@@ -120,6 +149,10 @@ if (!empty($successMessage)) {
 
         <button type="submit">Submit Found Item</button>
     </form>
+     <div class="d-flex gap-2 mt-4">
+  <a href="sgdashboard.php" class="btn btn-success btn-sm">Back to Dashboard</a>
+  <a href="index.php" class="btn btn-dark btn-sm">Home</a>
+  </div>
 </div>
 
 <script>
@@ -135,5 +168,7 @@ if (!empty($successMessage)) {
         }
     });
 </script>
+
+
 </body>
 </html>
