@@ -1,10 +1,13 @@
+<!-- About Page for Strathmore Lost & Found System -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>About - Strathmore Lost & Found System</title>
+  <!-- Bootstrap CSS -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Custom Styles for About Page -->
   <style>
     .hero-section {
       background: linear-gradient(135deg, #2c3e50 0%, #3498db 100%);
@@ -125,8 +128,8 @@
     }
     
     .process-number {
-      position: absolute;
-      top: -20px;
+      position: absolute; 
+      top: -20px; 
       left: 50%;
       transform: translateX(-50%);
       width: 40px;
@@ -161,35 +164,31 @@
   </style>
 </head>
 <body>
+  <!-- Navigation Bar -->
   <?php include_once("templates/nav.php"); ?>
   
-  <!-- Hero Section -->
+  <!-- Hero Section: Main intro and campus image -->
   <section class="hero-section text-center">
     <div class="container">
       <h1 class="display-3 fw-bold mb-4">About Our System</h1>
       <p class="lead mb-5 fs-4">Connecting lost items with their owners through innovative technology</p>
-      <div class="row justify-content-center">
-        <div class="col-lg-8">
-          <div class="placeholder-image">
-            <span>🏛️ Main Campus Image Placeholder</span>
-          </div>
-        </div>
-      </div>
+      
     </div>
   </section>
   
-  <!-- Mission & Vision Section -->
+  <!-- Mission & Vision Section: Purpose and future goals -->
   <section class="py-5">
     <div class="container">
       <div class="row align-items-center mb-5">
         <div class="col-lg-6 mb-4 mb-lg-0">
           <h2 class="display-5 fw-bold mb-4 text-primary">Our Mission</h2>
-          <p class="fs-5 mb-4">The Strathmore University Lost & Found System was developed to address the challenges students and staff face when losing personal belongings on campus. Our mission is to provide a streamlined, efficient, and user-friendly platform that connects lost items with their owners quickly and securely.</p>
+          <p class="fs-5 mb-4">The Strathmore University Lost & Found System was developed to address the challenges students face when losing personal belongings on campus. Our mission is to provide a streamlined, efficient, and user-friendly platform that connects lost items with their owners quickly and securely.</p>
           <p class="fs-6">By leveraging modern web technologies, we've created a system that reduces the time and frustration traditionally associated with recovering lost items, while also providing valuable data to help improve campus services.</p>
         </div>
         <div class="col-lg-6">
           <div class="placeholder-image">
-            <span>🎯 Mission Vision Image Placeholder</span>
+            <!-- Mission & Vision Illustration -->
+            <img src="https://sims.strathmore.edu/wp-content/uploads/2023/02/IMG_1913.jpg_resized-scaled.jpg" alt="Mission Vision" style="max-width:100%; max-height:180px; border-radius:12px; box-shadow:0 2px 8px rgba(0,0,0,0.08); object-fit:cover; height: 100%; width: 100%; ">
           </div>
         </div>
       </div>
@@ -202,13 +201,14 @@
         </div>
         <div class="col-lg-6 order-lg-1">
           <div class="placeholder-image">
-            <span>🚀 Future Vision Image Placeholder</span>
+          <img src="images/carousel3.jpeg" alt="vision" style="max-width:100%; max-height:180px; border-radius:12px; box-shadow:0 2px 8px rgba(0,0,0,0.08); object-fit:cover; height: 100%; width: 100%; ">
           </div>
         </div>
       </div>
     </div>
   </section>
   
+  <!-- Section Divider -->
   <div class="section-divider"></div>
   
   <!-- Key Features Section -->
@@ -217,7 +217,7 @@
 
   
   
-  <!-- How It Works Section -->
+  <!-- How It Works Section: Steps for users -->
   <section class="py-5 bg-light">
     <div class="container">
       <div class="text-center mb-5">
@@ -261,56 +261,13 @@
     </div>
   </section>
   
-  <!-- Development Team Section -->
-  <section class="py-5">
-    <div class="container">
-      <div class="text-center mb-5">
-        <h2 class="display-4 fw-bold mb-4">Meet Our Development Team</h2>
-        <p class="lead">The brilliant minds behind the Strathmore Lost & Found System</p>
-      </div>
-      
-      <div class="row g-4">
-        <div class="col-lg-4 col-md-6">
-          <div class="team-card">
-            <div class="placeholder-image team-image mx-auto">
-              <span>👨‍💻</span>
-            </div>
-            <h5 class="mb-2">John Doe</h5>
-            <p class="text-muted mb-2">Lead Developer</p>
-            <p class="small">Full-stack developer specializing in web applications and database design.</p>
-          </div>
-        </div>
-        
-        <div class="col-lg-4 col-md-6">
-          <div class="team-card">
-            <div class="placeholder-image team-image mx-auto">
-              <span>👩‍💻</span>
-            </div>
-            <h5 class="mb-2">Jane Smith</h5>
-            <p class="text-muted mb-2">UI/UX Designer</p>
-            <p class="small">Creative designer focused on user experience and interface design.</p>
-          </div>
-        </div>
-        
-        <div class="col-lg-4 col-md-6">
-          <div class="team-card">
-            <div class="placeholder-image team-image mx-auto">
-              <span>👨‍💼</span>
-            </div>
-            <h5 class="mb-2">Mike Johnson</h5>
-            <p class="text-muted mb-2">Project Manager</p>
-            <p class="small">Experienced project manager ensuring timely delivery and quality assurance.</p>
-          </div>
-        </div>
-
-      </div>
-    </div>
-  </section>
   
+  
+  <!-- Section Divider -->
   <div class="section-divider"></div>
   
   
-  <!-- Call to Action Section -->
+  <!-- Call to Action Section: Portal links and contact -->
   <section class="py-5 bg-primary text-white">
     <div class="container text-center">
       <h2 class="display-4 fw-bold mb-4">Ready to Get Started?</h2>
@@ -326,6 +283,7 @@
   <!-- Footer -->
   <?php include_once("templates/footer.php"); ?>
   
+  <!-- Bootstrap JS -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
