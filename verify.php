@@ -156,6 +156,11 @@ $items = $lostItems;
         </div>
     </div>
 
+    <div class="d-flex gap-2 mt-4">
+  <a href="sgdashboard.php" class="btn btn-success btn-sm">Back to Dashboard</a>
+  <a href="index.php" class="btn btn-dark btn-sm">Home</a>
+</div>
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
