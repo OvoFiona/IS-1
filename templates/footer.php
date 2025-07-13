@@ -14,10 +14,10 @@
       <!-- Contact Info -->
       <div style="margin-top: 20px;">
         <p style="margin: 5px 0; color: #ecf0f1;">
-          <span style="color: #3498db;">📧</span> support@strathmore.edu
+          <span style="color: #3498db;">📧</span> mercy.wendot@strathmore.edu
         </p>
         <p style="margin: 5px 0; color: #ecf0f1;">
-          <span style="color: #3498db;">📞</span> +254 703 034 000
+          <span style="color: #3498db;">📞</span> +254 45222497
         </p>
         <p style="margin: 5px 0; color: #ecf0f1;">
           <span style="color: #3498db;">📍</span> Strathmore University, Nairobi
@@ -97,15 +97,7 @@
            onmouseout="this.style.color = '#ecf0f1';">📷</a>
       </div>
       
-      <!-- Operating Hours -->
-      <div>
-        <h6 style="color: #3498db; margin-bottom: 10px;">Operating Hours</h6>
-        <p style="color: #ecf0f1; font-size: 14px; margin: 5px 0;">Monday - Friday: 8:00 AM - 6:00 PM</p>
-        <p style="color: #ecf0f1; font-size: 14px; margin: 5px 0;">Saturday: 9:00 AM - 4:00 PM</p>
-        <p style="color: #95a5a6; font-size: 14px; margin: 5px 0;">Sunday: Closed</p>
-      </div>
-    </section>
-  </div>
+     
   
   <!-- Copyright Section -->
   <div style="border-top: 1px solid #34495e; margin-top: 40px; padding-top: 20px; text-align: center;">
