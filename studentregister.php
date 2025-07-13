@@ -17,6 +17,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && strpos($_SERVER['CONTENT_TYPE'], 'a
         echo json_encode(['success' => false, 'message' => 'Invalid Strathmore email address.']);
         exit;
     }
+    // Validate email format: firstname.lastname@strathmore.edu
+if (!preg_match('/^[a-z]+\.[a-z]+@strathmore\.edu$/i', $email)) {
+    echo json_encode(['success' => false, 'message' => 'Invalid Strathmore email address.']);
+    exit;
+}
+
+
 
     if (strlen($password) < 8) {
         echo json_encode(['success' => false, 'message' => 'Password must be at least 8 characters long.']);
