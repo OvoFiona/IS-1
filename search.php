@@ -5,9 +5,27 @@ $searchName = strtolower($_GET['itemName'] ?? '');
 $searchDesc = strtolower($_GET['itemDescription'] ?? '');
 $searchLocation = strtolower($_GET['lostLocation'] ?? '');
 $searchDate = $_GET['lostDate'] ?? '';
-$successMessage = $_GET['claimed'] ?? '';
+$claimedSuccess = ($_SERVER['REQUEST_METHOD'] === 'GET' && isset($_GET['claimed']) && $_GET['claimed'] === '1' && !isset($_SERVER['HTTP_REFERER']));
 
-$sql = "SELECT * FROM FoundItems WHERE 1";
+
+
+// Handle claim before any output
+if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['claimItem'])) {
+    $itemId = intval($_POST['itemId']);
+    $email = $_POST['email'];
+
+    $update = $conn->prepare("UPDATE FoundItems SET StorageLocation = 'Claimed' WHERE Id = ? AND Email = ?");
+    $update->bind_param("is", $itemId, $email);
+
+    if ($update->execute()) {
+        header("Location: " . $_SERVER['PHP_SELF'] . "?claimed=1");
+        exit();
+    } else {
+        echo "<script>alert('Failed to update claim.');</script>";
+    }
+}
+
+$sql = "SELECT * FROM FoundItems WHERE StorageLocation IS NULL OR StorageLocation != 'Claimed'";
 if ($searchName) $sql .= " AND LOWER(itemName) LIKE '%$searchName%'";
 if ($searchDesc) $sql .= " AND LOWER(Description) LIKE '%$searchDesc%'";
 if ($searchLocation) $sql .= " AND LOWER(LocationFound) LIKE '%$searchLocation%'";
@@ -28,12 +46,12 @@ $result = $conn->query($sql);
 </head>
 <body>
     <div class="container">
-        <header>
+        <header class="mt-4 mb-3">
             <h1>Lost and Found Dashboard</h1>
             <p>Search for your lost items on campus</p>
         </header>
 
-        <section class="search-section">
+        <section class="search-section mb-4">
             <h2>Search Filters</h2>
             <form method="GET" class="search-form row g-2">
                 <div class="col-md-3">
@@ -54,8 +72,8 @@ $result = $conn->query($sql);
             </form>
         </section>
 
-        <?php if ($successMessage): ?>
-            <div class="alert alert-success mt-4">Item successfully claimed.</div>
+        <?php if ($claimedSuccess): ?>
+            <div class="alert alert-success">Item successfully claimed.</div>
         <?php endif; ?>
 
         <section class="dashboard mt-4" id="itemsDashboard">
@@ -82,23 +100,11 @@ $result = $conn->query($sql);
                 <div class="alert alert-warning">No items found matching your search criteria.</div>
             <?php endif; ?>
         </section>
+
+        <div class="d-flex gap-2 mt-4">
+            <a href="dashboard.html" class="btn btn-success btn-sm">Back to Dashboard</a>
+            <a href="index.php" class="btn btn-dark btn-sm">Home</a>
+        </div>
     </div>
 </body>
 </html>
-
-<?php
-if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['claimItem'])) {
-    $itemId = intval($_POST['itemId']);
-    $email = $_POST['email'];
-
-    $update = $conn->prepare("UPDATE FoundItems SET StorageLocation = 'Claimed' WHERE Id = ? AND Email = ?");
-    $update->bind_param("is", $itemId, $email);
-
-    if ($update->execute()) {
-        header("Location: " . $_SERVER['PHP_SELF'] . "?claimed=1");
-        exit();
-    } else {
-        echo "<script>alert('Failed to update claim.');</script>";
-    }
-}
-?>
