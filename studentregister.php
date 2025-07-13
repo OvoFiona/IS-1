@@ -69,9 +69,52 @@ if (!preg_match('/^[a-z]+\.[a-z]+@strathmore\.edu$/i', $email)) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Security Guard Registration</title>
+    <title>Student Registration</title>
     <link rel="stylesheet" href="CSS/Security Guard.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+  body {
+    background: linear-gradient(135deg, #2c3e50, #3498db);
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 30px;
+  }
+  .card {
+    border-radius: 1rem;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+    padding: 30px;
+    width: 100%;
+    max-width: 500px;
+    background: white;
+  }
+  .form-control:focus {
+    box-shadow: 0 0 0 0.15rem rgba(52, 152, 219, 0.5);
+  }
+  .btn-primary {
+    width: 100%;
+    font-weight: bold;
+    letter-spacing: 0.5px;
+  }
+
+
+  .login-link {
+    text-align: center;
+    margin-top: 15px;
+  }
+  button {
+    background-color: #032841ff;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    width: 30%;
+    text-align: left;
+  }
+</style>
 </head>
 <body>
     <div class="registration-container">
