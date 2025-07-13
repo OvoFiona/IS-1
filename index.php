@@ -115,7 +115,7 @@
 
     <div class="carousel-inner">
       <div class="carousel-item active">
-        <img src="https://images.unsplash.com/photo-1562774053-701939374585?w=1200&h=400&fit=crop" class="d-block w-100" alt="Lost and Found Slide 1">
+        <img src="https://si.strathmore.edu/wp-content/uploads/2023/11/SI-learn-scaled.jpg" class="d-block w-100" alt="Lost and Found Slide 1">
         <div class="carousel-caption">
           <h1>Strathmore Lost & Found System</h1>
         </div>
@@ -153,7 +153,7 @@
           <h2 class="text-center mb-4">Welcome to Strathmore Lost & Found</h2>
           <p class="text-center">Welcome to the Strathmore Lost & Found System.</p>
           <p class="text-center">This system is designed to help you report and retrieve lost items.</p>
-          <p class="text-center">Find your lost items quickly and easily with our automated platform designed for the Strathmore community.</p>
+          <p class="text-center">Find your lost items quickly and easily with our automated platform designed for the Strathmore Students.</p>
         </div>
       </div>
     </div>
