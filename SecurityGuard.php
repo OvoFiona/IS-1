@@ -17,6 +17,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && strpos($_SERVER['CONTENT_TYPE'], 'a
         echo json_encode(['success' => false, 'message' => 'Invalid Strathmore email address.']);
         exit;
     }
+    // Validate email format:
+    if (!preg_match('/^[A-Z][a-z0-9]*@strathmore\.edu$/', $email)) {
+    echo json_encode(['success' => false, 'message' => 'Email must start with a capital letter and end with @strathmore.edu ']);
+    exit;
+}
+
 
     if (strlen($password) < 8) {
         echo json_encode(['success' => false, 'message' => 'Password must be at least 8 characters long.']);
@@ -65,6 +71,35 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && strpos($_SERVER['CONTENT_TYPE'], 'a
     <title>Security Guard Registration</title>
     <link rel="stylesheet" href="CSS/Security Guard.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+  body {
+    background: linear-gradient(135deg, #2c3e50, #3498db);
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 30px;
+  }
+
+  .card {
+    background: #fff;
+    padding: 30px;
+    border-radius: 1rem;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 480px;
+  }
+
+  .btn-primary {
+    width: 100%;
+    font-weight: 500;
+  }
+
+  .login-link {
+    text-align: center;
+    margin-top: 15px;
+  }
+</style>
 </head>
 <body>
     <div class="registration-container">
