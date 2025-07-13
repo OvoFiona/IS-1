@@ -62,8 +62,27 @@ if ($result->num_rows === 0) {
   <meta charset="UTF-8" />
   <title>Report Lost Item</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <style>
+  body {
+    background: linear-gradient(135deg, #2c3e50, #3498db);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 30px;
+  }
+  .card {
+    background: white;
+    border-radius: 1rem;
+    padding: 30px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+    width: 100%;
+    max-width: 720px;
+  }
+</style>
 </head>
 <body class="container py-5">
+
   <h1 class="mb-4">Report Lost Item</h1>
 
   <?php if ($errorMessage): ?>
@@ -71,6 +90,8 @@ if ($result->num_rows === 0) {
   <?php elseif ($successMessage): ?>
     <div class="alert alert-success"><?php echo htmlspecialchars($successMessage); ?></div>
   <?php endif; ?>
+
+  
 
   <form method="POST" enctype="multipart/form-data" class="row g-3">
     <div class="col-md-6">
@@ -117,6 +138,12 @@ if ($result->num_rows === 0) {
     <div class="col-12">
       <button type="submit" class="btn btn-primary w-100">Submit Lost Item</button>
     </div>
+
+  <div class="d-flex gap-2 mt-4">
+  <a href="dashboard.html" class="btn btn-success btn-sm">Back to Dashboard</a>
+  <a href="index.php" class="btn btn-dark btn-sm">Home</a>
+</div>
+
   </form>
 </body>
 </html>
