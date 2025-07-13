@@ -2,12 +2,9 @@
 require_once "config/connect.php";
 session_start();
 
-if (!isset($_SESSION['student_email'])) {
-    echo "<script>alert('Access denied. Please log in to view your notifications.'); window.location.href = 'student.php';</script>";
-    exit();
-}
 
-$studentEmail = $_SESSION['student_email'];
+
+$studentEmail = $_SESSION['email'];
 
 $stmt = $conn->prepare("SELECT ItemName, verification_status, verification_notes, date_verified FROM lostitems WHERE Email = ? AND verification_status IS NOT NULL ORDER BY date_verified DESC");
 $stmt->bind_param("s", $studentEmail);
@@ -71,6 +68,11 @@ $notifications = $result->fetch_all(MYSQLI_ASSOC);
             <?php endforeach; ?>
         </div>
     <?php endif; ?>
+
+     <div class="d-flex gap-2 mt-4">
+  <a href="dashboard.html" class="btn btn-success btn-sm">Back to Dashboard</a>
+  <a href="index.php" class="btn btn-dark btn-sm">Home</a>
+</div>
 </div>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
