@@ -21,7 +21,7 @@
       <div class="col-lg-6">
         <div class="h-100 rounded shadow-sm overflow-hidden">
           <iframe 
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15955.15211296604!2d36.80284811759225!3d-1.302118776628757!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x182f10f0142f0257%3A0x791aa8e6d8535b6b!2sKenyatta%20Hospital%2C%20Nairobi!5e0!3m2!1sen!2ske!4v1752137086176!5m2!1sen!2ske"
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3988.7771823514736!2d36.80947437311161!3d-1.3089548356474425!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x182f112e9eff4827%3A0x17a918597484c8ea!2sStrathmore%20University!5e0!3m2!1sen!2ske!4v1752428460011!5m2!1sen!2ske" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
             width="100%" 
             height="100%" 
             style="min-height: 400px; border: 0;" 
