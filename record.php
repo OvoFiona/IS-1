@@ -99,7 +99,12 @@ if (!empty($successMessage)) {
        
         
     </form>
-    <p><a href="view.php">View All Items</a></p>
+   
+     <div class="d-flex gap-2 mt-4">
+  <a href="sgdashboard.php" class="btn btn-success btn-sm">Back to Dashboard</a>
+  <a href="index.php" class="btn btn-dark btn-sm">Home</a>
+  <a href="view.php" class="btn btn-success btn-sm">View All Items</a>
+</div>
 
   
 </form>
