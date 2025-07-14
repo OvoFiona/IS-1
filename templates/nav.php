@@ -107,6 +107,21 @@ $currentPage = basename($_SERVER['PHP_SELF']);
     " onmouseover="this.style.backgroundColor = '#d35400';" onmouseout="this.style.backgroundColor = '#e67e22';">
       Security Guard Page
     </a>
+
+    <a href="adminsignup.php" style="
+      background-color: #e6229bff;
+      color: white;
+      padding: 15px 30px;
+      border-radius: 5px;
+      text-decoration: none;
+      font-size: 16px;
+      width: 200px;
+      text-align: center;
+      transition: background-color 0.3s ease;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    " onmouseover="this.style.backgroundColor = '#d35400';" onmouseout="this.style.backgroundColor = '#e67e22';">
+      Admin Page
+    </a>
   </div>
 </div>
 
