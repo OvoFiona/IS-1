@@ -340,6 +340,10 @@ $notifications = fetchAll($conn, 'notifications');
                 <li>Total Notifications: <b><?= count($notifications) ?></b></li>
             </ul>
         </div>
+
+        <div class="d-flex gap-2 mt-4">
+            
+            <a href="index.php" class="btn btn-danger btn-sm">Logout</a>
     </div>
 </body>
 </html>
